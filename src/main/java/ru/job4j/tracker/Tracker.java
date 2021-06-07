@@ -2,7 +2,6 @@ package ru.job4j.tracker;
 
 import java.util.Arrays;
 
-
 public class Tracker {
     private final Item[] items = new Item[100];
     private int ids = 1;
@@ -41,12 +40,12 @@ public class Tracker {
         int distPos = indexOf(id);
         boolean rsl = distPos != -1;
         if (rsl) {
-            System.arraycopy(items, distPos + 1, items, distPos, size - distPos);
-            items[--size] = null;
+            System.arraycopy(items, distPos + 1, items, distPos, size - 1 - distPos);
+            size--;
+            items[size] = null;
         }
-        return true;
+        return rsl;
     }
-
 
     public Item[] findAll() {
         return Arrays.copyOf(items, size);
