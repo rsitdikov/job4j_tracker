@@ -12,6 +12,8 @@ public class StartUI {
         tracker.add(new Item ("second item"));
         Item second = tracker.findById(1);
         System.out.println(second.getName());
+        Item third = new Item ("third item", 100500);
+        System.out.println(third);
     }
 }
 
