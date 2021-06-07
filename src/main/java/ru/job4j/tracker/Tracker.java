@@ -54,9 +54,9 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] rsl = new Item[size];
         int count = 0;
-        for (Item item : items) {
-            if (item.getName().equals(key)) {
-                rsl[count++] = item;
+        for (int index = 0; index < size; index++) {
+            if (this.items[index].getName().equals(key)) {
+                rsl[count++] = this.items[index];
             }
         }
         return Arrays.copyOf(rsl, count);

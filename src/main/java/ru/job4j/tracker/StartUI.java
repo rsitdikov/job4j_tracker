@@ -31,22 +31,26 @@ public class StartUI {
             } else if (select == 2) {
                 System.out.println("=== Edit Item ====");
                 System.out.print("Enter id to edit item: ");
-                int id = scanner.nextInt();
+                int id = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter a new name: ");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
-                String msg = (tracker.replace(id, item)) ? "Item with this id edited." : "Item with this id not found.";
+                String msg = (
+                        !tracker.replace(id, item)
+                ) ? "Item with this id not found." : "Item with this id edited.";
                 System.out.println(msg);
             } else if (select == 3) {
                 System.out.println("=== Delete Item ====");
                 System.out.print("Enter id to delete item: ");
-                int id = scanner.nextInt();
-                String msg = (tracker.delete(id)) ? "Item with this id deleted." : "Item with this id not found.";
+                int id = Integer.parseInt(scanner.nextLine());
+                String msg = (
+                        tracker.delete(id)
+                ) ? "Item with this id deleted." : "Item with this id not found.";
                 System.out.println(msg);
             } else if (select == 4) {
                 System.out.println("=== Find Item by Id ====");
                 System.out.print("Enter id to search from item: ");
-                int id = scanner.nextInt();
+                int id = Integer.parseInt(scanner.nextLine());
                 Item item = tracker.findById(id);
                 if (item != null) {
                     System.out.println("Found item with id: " + item.getId());
@@ -83,7 +87,6 @@ public class StartUI {
         System.out.println("5. Find items by name");
         System.out.println("6. Exit Program");
     }
-
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
