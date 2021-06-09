@@ -48,6 +48,28 @@ public class StartUI {
                 } else {
                     System.out.println("Ошибка удаления заявки.");
                 }
+            } else if (select == 4) {
+                System.out.println("=== Find item by id ====");
+                System.out.print("Enter id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item item = tracker.findById(id);
+                if (item != null) {
+                    System.out.println(item);
+                } else {
+                    System.out.println("Заявка с введенным id: " + id + " не найдена.");
+                }
+            } else if (select == 5) {
+                System.out.println("=== Find items by name ====");
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                Item[] items = tracker.findByName(name);
+                if (items.length > 0) {
+                    for (Item item : items) {
+                        System.out.println(item);
+                    }
+                } else {
+                    System.out.println("Заявки с именем: " + name + " не найдены.");
+                }
             } else if (select == 6) {
                 run = false;
             }
