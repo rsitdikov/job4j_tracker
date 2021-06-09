@@ -13,7 +13,8 @@ public class Matches {
                 max = matches;
             }
             do {
-                System.out.print("Игрок " + (player + 1) + " укажите количество спичек (от 1 до " + max + "): ");
+                System.out.print("Игрок " + (player + 1) + " укажите количество спичек (от 1 до "
+                        + max + "): ");
                 select = Integer.valueOf(input.nextLine());
             } while (select < 1 || select > max);
                 System.out.println();

@@ -9,10 +9,10 @@ public class StartUIOld {
         String created = first.getCreated().format(formatter);
         System.out.println(created);
         Tracker tracker = new Tracker();
-        tracker.add(new Item ("second item"));
+        tracker.add(new Item("second item"));
         Item second = tracker.findById(1);
         System.out.println(second.getName());
-        Item third = new Item ("third item", 100500);
+        Item third = new Item("third item", 100500);
         System.out.println(third);
     }
 }
