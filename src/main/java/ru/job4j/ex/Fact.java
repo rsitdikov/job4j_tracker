@@ -3,7 +3,7 @@ package ru.job4j.ex;
 public class Fact {
     public static void main(String[] args) {
         for (int i = 10; i > -2; i--) {
-            System.out.println("numver: " + i + " factorial: " + new Fact().calc(i));
+            System.out.println("number: " + i + " factorial: " + new Fact().calc(i));
         }
     }
 
