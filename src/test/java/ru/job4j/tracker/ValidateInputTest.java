@@ -45,11 +45,10 @@ public class ValidateInputTest {
     public void whenInputNegative() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[]{"-5", "5"}
+                new String[]{"-5"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        input.askInt("Enter menu:");
-        assertThat(out.toString(), is ("Please enter validate data again."
-        + System.lineSeparator()));
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected, is(-5));
     }
 }
