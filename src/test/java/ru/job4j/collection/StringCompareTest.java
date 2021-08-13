@@ -57,6 +57,7 @@ public class StringCompareTest {
         );
         assertThat(rst, lessThan(0));
     }
+
     @Test
     public void lastCharOfLeftLessThanRightShouldBeNegative() {
         StringCompare compare = new StringCompare();
@@ -66,6 +67,7 @@ public class StringCompareTest {
         );
         assertThat(rst, lessThan(0));
     }
+
     @Test
     public void lastCharOfLeftGreaterThanRightShouldBeNegative() {
         StringCompare compare = new StringCompare();

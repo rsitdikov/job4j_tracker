@@ -61,7 +61,8 @@ public class UserSortTest {
 
     @Test
     public void whenCompatorByNameAndAge() {
-        Comparator<User> cmpNameAge = new UserSort.UserSortByName().thenComparing(new UserSort.UserSortByAge());
+        Comparator<User> cmpNameAge = new UserSort.UserSortByName()
+                .thenComparing(new UserSort.UserSortByAge());
         int rsl = cmpNameAge.compare(
                 new User("A", 1),
                 new User("B", 0)
@@ -71,7 +72,8 @@ public class UserSortTest {
 
     @Test
     public void whenCompatorByNameAndAgeReverse() {
-        Comparator<User> cmpNameAge = new UserSort.UserSortByName().thenComparing(new UserSort.UserSortAgeReverse());
+        Comparator<User> cmpNameAge = new UserSort.UserSortByName().
+                thenComparing(new UserSort.UserSortAgeReverse());
         int rsl = cmpNameAge.compare(
                 new User("A", 1),
                 new User("B", 0)
@@ -81,7 +83,8 @@ public class UserSortTest {
 
     @Test
     public void whenCompatorByNameReverseAndAge() {
-        Comparator<User> cmpNameAge = new UserSort.UserSortByNameReverse().thenComparing(new UserSort.UserSortByAge());
+        Comparator<User> cmpNameAge = new UserSort.UserSortByNameReverse().
+                thenComparing(new UserSort.UserSortByAge());
         int rsl = cmpNameAge.compare(
                 new User("A", 1),
                 new User("B", 0)
@@ -91,7 +94,8 @@ public class UserSortTest {
 
     @Test
     public void whenCompatorByNameReverseAndAgeReverse() {
-        Comparator<User> cmpNameAge = new UserSort.UserSortByNameReverse().thenComparing(new UserSort.UserSortAgeReverse());
+        Comparator<User> cmpNameAge = new UserSort.UserSortByNameReverse().
+                thenComparing(new UserSort.UserSortAgeReverse());
         int rsl = cmpNameAge.compare(
                 new User("A", 1),
                 new User("B", 0)
