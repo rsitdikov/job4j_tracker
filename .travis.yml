@@ -11,10 +11,10 @@ sudo: false
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
-# Отправлять уведомление на почту rsitdikov.usp@gmail.com (Изменить на свою) если сборка упала
+# Отправлять уведомление на почту tel.89194491005.usp@gmail.com (Изменить на свою) если сборка упала
 notifications:
   email:
     recipients:
-      - rsitdikov.usp@gmail.com
+      - tel.89194491005.usp@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
