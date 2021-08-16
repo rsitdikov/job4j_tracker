@@ -18,3 +18,8 @@ notifications:
       - tel.89194491005.usp@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
+env:
+
+  global:
+
+    - CODECOV_TOKEN="788e1a6a-17fa-49fe-b920-cd7efd7ef1fd"
