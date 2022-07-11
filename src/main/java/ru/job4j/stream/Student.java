@@ -6,7 +6,6 @@ public class Student implements Comparable<Student> {
     private final String name;
     private final int scope;
 
-
     public Student(String name, int scope) {
         this.name = name;
         this.scope = scope;
@@ -19,6 +18,7 @@ public class Student implements Comparable<Student> {
     public int getScope() {
         return scope;
     }
+
     @Override
     public String toString() {
         return "Student{name='"
@@ -26,6 +26,7 @@ public class Student implements Comparable<Student> {
                 + ", scope="
                 + scope + "}";
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

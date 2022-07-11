@@ -30,6 +30,7 @@ public class Address {
     public int getApartment() {
         return apartment;
     }
+
     @Override
     public String toString() {
         return "Address{city='" + city + '\''
@@ -38,6 +39,7 @@ public class Address {
                 + ", apartment=" + apartment
                 + '}';
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
