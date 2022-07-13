@@ -16,10 +16,10 @@ public class Group {
                                 .map(unit -> new Holder(unit, student.getName()))
                 )
                 .collect(
-                        Collectors.groupingBy(holder -> holder.key,
+                        Collectors.groupingBy(holder -> holder.getKey(),
                                 Collector.of(
                                         HashSet::new,
-                                        (set, holder) -> set.add(holder.value),
+                                        (set, holder) -> set.add(holder.getValue()),
                                                 (left, right) -> {
                                             left.addAll(right);
                                             return left;

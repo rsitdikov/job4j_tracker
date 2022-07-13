@@ -1,11 +1,19 @@
 package ru.job4j.lambda;
 
 public class Holder {
-    String key;
-    String value;
+    private String key;
+    private String value;
 
-    Holder(String key, String value) {
+    public Holder(String key, String value) {
         this.key = key;
         this.value = value;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public String getValue() {
+        return value;
     }
 }
