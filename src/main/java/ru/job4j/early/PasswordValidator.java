@@ -8,22 +8,22 @@ public class PasswordValidator {
             throw new IllegalArgumentException("Password not set.");
         }
         if (password.length() < 8 || password.length() > 32) {
-            return "Password length must be at least 8 and not more than 32 characters.";
+            throw new IllegalArgumentException("Password length must be at least 8 and not more than 32 characters.");
         }
         if (isStopList(password)) {
-            return "Password must not contain 'qwerty', '12345', 'password', 'admin', 'user'.";
+            throw new IllegalArgumentException("Password must not contain 'qwerty', '12345', 'password', 'admin', 'user'.");
         }
         if (!checkSymbols(password, Character::isUpperCase)) {
-            return "Password must contain at least one uppercase letter.";
+            throw new IllegalArgumentException("Password must contain at least one uppercase letter.");
         }
         if (!checkSymbols(password, Character::isLowerCase)) {
-            return "Password must contain at least one lowercase letter.";
+            throw new IllegalArgumentException("Password must contain at least one lowercase letter.");
         }
         if (!checkSymbols(password, Character::isDigit)) {
-            return "Password must contain at least one digit.";
+            throw new IllegalArgumentException("Password must contain at least one digit.");
         }
         if (!checkSymbols(password, character -> !Character.isLetterOrDigit(character))) {
-            return "Password must contain at least one special character.";
+            throw new IllegalArgumentException("Password must contain at least one special character.");
         }
         return "Good password.";
     }

@@ -10,7 +10,8 @@ class PasswordValidatorTest {
 
     @Test
     public void whenPasswordNotSet() {
-        Throwable thrown = assertThrows(IllegalArgumentException.class, () -> validate(null));
+        Throwable thrown = assertThrows(IllegalArgumentException.class,
+                () -> validate(null));
         assertThat(thrown.getMessage()).isEqualTo("Password not set.");
     }
 
@@ -21,44 +22,63 @@ class PasswordValidatorTest {
 
     @Test
     public void whenPasswordIsBad() {
-        assertThat(validate("As&qwerty666"))
-                .isEqualTo("Password must not contain 'qwerty', '12345', 'password', 'admin', 'user'.");
+        Throwable thrown = assertThrows(IllegalArgumentException.class,
+                () -> validate("As&qwerty666"));
+        assertThat(thrown.getMessage())
+                .isEqualTo(
+                        "Password must not contain 'qwerty', '12345', "
+                                + "'password', 'admin', 'user'.");
     }
 
     @Test
     public void whenStringLengthIsLessThan8() {
-        assertThat(validate("Ab1%"))
-                .isEqualTo("Password length must be at least 8 and not more than 32 characters.");
+        Throwable thrown = assertThrows(IllegalArgumentException.class,
+                () -> validate("Ab1%"));
+        assertThat(thrown.getMessage())
+                .isEqualTo("Password length must be at"
+                        + " least 8 and not more than 32 characters.");
     }
 
     @Test
     public void whenStringLengthIsGreaterThan32() {
-        assertThat(validate(
-                "Ab1%aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-                .isEqualTo("Password length must be at least 8 and not more than 32 characters.");
+        Throwable thrown = assertThrows(IllegalArgumentException.class,
+                () -> validate(
+                "Ab1%aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                        + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        assertThat(thrown.getMessage())
+                .isEqualTo("Password length must be at least 8 and not "
+                        + "more than 32 characters.");
     }
 
     @Test
     public void whenNoDigits() {
-        assertThat(validate("aBcD%^&*"))
+        Throwable thrown = assertThrows(IllegalArgumentException.class,
+                () -> validate("aBcD%^&*"));
+        assertThat(thrown.getMessage())
                 .isEqualTo("Password must contain at least one digit.");
     }
 
     @Test
     public void whenNoLowerCaseLetters() {
-        assertThat(validate("ABCD123&"))
-                .isEqualTo("Password must contain at least one lowercase letter.");
+        Throwable thrown = assertThrows(IllegalArgumentException.class,
+                () -> validate("ABCD123&"));
+        assertThat(thrown.getMessage()).isEqualTo("Password must "
+                + "contain at least one lowercase letter.");
     }
 
     @Test
     public void whenNoUpperCaseLetters() {
-        assertThat(validate("abcd123&"))
-                .isEqualTo("Password must contain at least one uppercase letter.");
+        Throwable thrown = assertThrows(IllegalArgumentException.class,
+                () -> validate("abcd123&"));
+        assertThat(thrown.getMessage()).isEqualTo("Password must contain"
+                + " at least one uppercase letter.");
     }
 
     @Test
     public void whenNoSpecialCharacters() {
-        assertThat(validate("AbCd1234"))
-                .isEqualTo("Password must contain at least one special character.");
+        Throwable thrown = assertThrows(IllegalArgumentException.class,
+                () -> validate("AbCd1234"));
+        assertThat(thrown.getMessage()).isEqualTo("Password must contain"
+                + " at least one special character.");
     }
 }
