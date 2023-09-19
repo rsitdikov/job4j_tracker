@@ -1,15 +1,13 @@
 package ru.job4j.tracker;
 
-import java.io.InputStream;
+import java.io.*;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 import static java.lang.Integer.*;
 
 public class SqlTracker implements Store {
-    private Connection cn;
+    private Connection cn = null;
 
     public SqlTracker(Connection connection) {
         this.cn = connection;
@@ -20,7 +18,7 @@ public class SqlTracker implements Store {
 
     @Override
     public void init() {
-        try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream("app.properties")) {
+        try (InputStream in = new FileInputStream("db/liquibase.properties")) {
         Properties config = new Properties();
         config.load(in);
         Class.forName(config.getProperty("driver-class-name"));
@@ -78,7 +76,7 @@ public class SqlTracker implements Store {
     public boolean delete(int id) {
         boolean result = false;
         try (PreparedStatement ps = cn.prepareStatement("DELETE FROM items WHERE id = (?)")) {
-            ps.setInt(1, valueOf(id));
+            ps.setInt(1, id);
             result = ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
